@@ -1,0 +1,163 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>print Hello</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Startup Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    
+  <header>
+    <div class="container">
+      <h1 class="logo">TechStartup</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Your Journey to Innovation Begins Here</h2>
+      <p>Build amazing products with our all-in-one platform.</p>
+      <a href="#" class="btn-primary">Get Started</a>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <h3>Why Choose Us?</h3>
+      <div class="feature-grid">
+        <div class="feature">
+          <h4>Fast Deployment</h4>
+          <p>Get your product to market faster with our tools.</p>
+        </div>
+        <div class="feature">
+          <h4>Scalable Solutions</h4>
+          <p>Built to grow as your user base grows.</p>
+        </div>
+        <div class="feature">
+          <h4>Secure by Design</h4>
+          <p>Security and privacy are built into everything we offer.</p>
+        </div>
+      </div>
+    </div>
+             
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 TechStartup. All rights reserved.</p>
+    </div>
+  </footer>
+  <main>
+    
+   -->
+    <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>India Map - SVG Example</title>
+  <style>
+    svg {
+      width: 500px;
+      height: auto;
+    }
+
+    .state {
+      fill: #d3d3d3;
+      stroke: #333;
+      stroke-width: 1;
+      cursor: pointer;
+      transition: fill 0.3s;
+    }
+
+    .state:hover {
+      fill: #ff9800;
+    }
+
+    .label {
+      font-size: 12px;
+      fill: #000;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>India Map (SVG + CSS)</h2>
+
+  <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+    Example path for a state (Use full SVG for complete map) -->
+    <!-- <path class="state" d="M100,200 L150,250 L120,300 L80,260 Z" id="maharashtra" />
+    <text x="100" y="240" class="label">Maharashtra</text> -->
+
+    <!-- Add more paths for other states here -->
+  <!-- </svg>
+
+</body>
+</html> -->
+<div class="p-6 bg-gray-100 min-h-screen">
+  <!-- Dashboard Card -->
+  <div class="bg-white shadow-xl rounded-2xl p-6">
+    <h2 class="text-xl font-bold mb-4">📍 Institutions Map (India)</h2>
+    <div id="map" class="w-full h-[500px] rounded-xl shadow-inner"></div>
+  </div>
+</div>
+
+<!-- Leaflet.js -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+  // Initialize map
+  var map = L.map('map').setView([22.9734, 78.6569], 5);
+
+  // Add OSM tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  // Sample institutions (replace with real data)
+  const institutions = [
+    { name: "Ryan International School", type: "School", coords: [28.7041, 77.1025] },
+    { name: "Delhi University", type: "College", coords: [28.6893, 77.2089] },
+    { name: "BITS Pilani", type: "College", coords: [28.3589, 75.5880] },
+    { name: "St. Xavier's School", type: "School", coords: [19.0760, 72.8777] },
+    { name: "IIT Kharagpur", type: "College", coords: [22.3149, 87.3105] }
+  ];
+
+  // Add markers with color-coded style
+  institutions.forEach(inst => {
+    const color = inst.type === "School" ? "blue" : "green";
+
+    const marker = L.circleMarker(inst.coords, {
+      radius: 9,
+      color: color,
+      fillColor: color,
+      fillOpacity: 0.85
+    }).addTo(map);
+
+    marker.bindPopup(`<b>${inst.name}</b><br>Type: ${inst.type}`);
+  });
+</script>
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>

@@ -1,0 +1,393 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DPRES - Landing (Replica)</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1320; /* dark page background */
+      --card:#111827;
+      --muted:#9aa6b2;
+      --white: #ffffff;
+      --radius:20px;
+      --container:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background:var(--bg);
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+    }
+    .wrap{max-width:var(--container);margin:0 auto;padding:28px}/* Card style used across screens */
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:var(--radius);
+  padding:28px;
+  margin:18px 0;
+  box-shadow:0 8px 30px rgba(2,6,23,0.6);
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+/* Help card (dark with icon) */
+.help-card{display:flex;flex-direction:column;align-items:center;text-align:center;padding:40px}
+.help-card .icon{width:64px;height:64px;border-radius:16px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.help-card h3{font-size:22px;margin:8px 0 12px}
+.help-card p{color:var(--muted);max-width:680px}
+
+/* gradient CTA set like your screenshot */
+.cta-grid{background:linear-gradient(90deg,#0f6bff 0%, #2b8eff 30%, #e74b2f 100%);padding:56px;border-radius:16px;text-align:center;margin:28px 0}
+.cta-grid h2{font-size:32px;margin:0 0 18px;line-height:1.05;font-weight:800}
+.cta-grid p{color:rgba(255,255,255,0.9);opacity:0.95;margin:0 0 24px;font-size:18px}
+.btn-row{display:flex;flex-direction:column;gap:14px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:12px;background:#fff;color:#0b2b6b;font-weight:700;text-decoration:none;min-width:260px}
+.btn.secondary{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);color:var(--white)}
+
+/* alternate gradient card (rounded with bright gradient) */
+.gradient-card{background:linear-gradient(90deg,#2479ff 0%, #b855b3 50%, #ff5b2e 100%);padding:36px;border-radius:18px;text-align:center;color:var(--white)}
+.gradient-card h3{font-size:28px;margin-bottom:12px;font-weight:800}
+.gradient-card p{color:rgba(255,255,255,0.95);opacity:0.95}
+.gradient-card .cta{margin-top:18px;display:inline-block;padding:12px 18px;background:rgba(255,255,255,0.95);color:#0b1a33;border-radius:12px;text-decoration:none;font-weight:700}
+
+/* Feature small card */
+.feature{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));border-radius:14px;padding:28px;margin:18px 0;text-align:center}
+.feature .f-icon{width:54px;height:54px;border-radius:10px;background:#5a2dd6;display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px}
+.feature h4{margin:0 0 8px}
+.feature p{color:var(--muted)}
+
+/* Big section heading */
+.section-title{font-size:36px;font-weight:800;text-align:center;margin:36px 0 12px}
+.section-sub{color:var(--muted);text-align:center;margin-bottom:26px;max-width:820px;margin-left:auto;margin-right:auto}
+
+/* Card image / case study pill */
+.case{position:relative;border-radius:14px;overflow:hidden;height:160px;background:#123;display:flex;align-items:flex-end}
+.case img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
+.case .pill{position:relative;z-index:2;background:#ff2b2b;color:#fff;padding:10px 18px;border-radius:10px;margin:16px;margin-left:22px;font-weight:700;display:inline-flex;align-items:center;gap:8px}
+
+/* responsiveness */
+@media(min-width:900px){
+  .wrap{padding:40px}
+  .cta-grid{display:flex;align-items:center;justify-content:space-between;padding:56px 48px}
+  .cta-grid .left{flex:1;padding-right:24px;text-align:left}
+  .cta-grid .right{flex:1}
+  .btn-row{flex-direction:row}
+  .btn{min-width:200px}
+  .section-title{font-size:44px}
+  .gradient-card h3{font-size:36px}
+}
+
+/* simple visible animation */
+.reveal{opacity:0;transform:translateY(14px);transition:all 600ms cubic-bezier(.2,.9,.25,1)}
+.reveal.in{opacity:1;transform:none}
+
+  </style>
+</head>
+<body>  <main class="wrap"><!-- HELP CARD -->
+<div class="card help-card reveal">
+  <div class="icon" aria-hidden>
+    <!-- headphone icon simple -->
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C7.58 2 4 5.58 4 10v6a3 3 0 0 0 3 3h0a2 2 0 0 0 2-2v-5a2 2 0 0 0-2-2H7" stroke="#8fb3ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 10v4a3 3 0 0 1-3 3h0a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h0" stroke="#8fb3ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <h3>Still need help?</h3>
+  <p>Contact your school/college DPRES coordinator or visit the Help & Support section</p>
+  <div style="height:20px"></div>
+  <a class="btn" href="#query" style="background:linear-gradient(90deg,#5a8bff,#ff6b45);color:#fff;box-shadow:0 8px 20px rgba(90,139,255,0.12);">💬&nbsp;Raise a Query</a>
+</div>
+
+<!-- Two CTA variants like screenshots -->
+<section class="cta-grid reveal" aria-label="primary-cta">
+  <div class="left">
+    <h2>Ready to Enhance Your Institution's Disaster Preparedness?</h2>
+    <p>Join thousands of educational institutions already using DPRES to build safer, more prepared communities.</p>
+  </div>
+  <div class="right" style="display:flex;flex-direction:column;gap:14px;align-items:center">
+    <div class="btn-row">
+      <a class="btn" href="#getstarted">Get Started</a>
+      <a class="btn secondary" href="#training">Explore Training Modules</a>
+    </div>
+  </div>
+</section>
+
+<!-- Gradient alternate card -->
+<div class="card reveal">
+  <div class="gradient-card">
+    <h3>Ready to Build Your School's Disaster Preparedness?</h3>
+    <p>Join thousands of institutions that have improved their emergency response through DPRES training</p>
+    <a class="cta" href="#training">📘&nbsp;Start Emergency Training Now</a>
+  </div>
+</div>
+
+<!-- feature small card -->
+<div class="card feature reveal">
+  <div class="f-icon">🔰</div>
+  <h4>Admin Oversight</h4>
+  <p>Comprehensive monitoring and reporting tools for authorities and educational administrators.</p>
+</div>
+
+<!-- section title and case study -->
+<h2 class="section-title reveal">Recent Disasters & Case Studies</h2>
+<p class="section-sub reveal">Learn from real disasters that affected educational institutions and how proper preparedness saved lives</p>
+
+<div class="card case reveal" style="height:200px">
+  <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=1c8c742a2e3d3a4b6f3a3d2b4b2c9a1f" alt="case">
+  <div class="pill">⚠&nbsp;Cyclone Emergency</div>
+</div>
+
+<!-- spacer -->
+<div style="height:80px"></div>
+
+  </main>  <script>
+    // simple reveal on scroll
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          obs.unobserve(e.target);
+        }
+      })
+    },{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+    // smooth in-page scrolling for anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (ev)=>{
+        ev.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const dest = id ? document.getElementById(id) : document.body;
+        if(dest){
+          dest.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+  </script></body>
+</html>
+#### Landing
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPRES - Disaster Preparedness and Response</title>
+    <style>
+        /* --- Reset and Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('background.jpg') no-repeat center center/cover;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* --- Navigation Bar --- */
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+        }
+
+        header h1 {
+            float: left;
+            font-size: 28px;
+            color: #f1c40f;
+        }
+
+        nav {
+            float: right;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f1c40f;
+        }
+
+        /* --- Hero / Home Section --- */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 60px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        section h3 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            text-align: center;
+            font-size: 18px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* --- Login Section --- */
+        .login-form {
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            margin: 30px auto;
+            border-radius: 10px;
+        }
+
+        .login-form h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .login-form input[type="submit"] {
+            background: #f39c12;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-form input[type="submit"]:hover {
+            background: #e67e22;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            header h1, nav {
+                float: none;
+                text-align: center;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="container">
+        <h1>DPRES</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#emergency">Emergency</a></li>
+                <li><a href="#learn">Learn</a></li>
+                <li><a href="#login">Login</a></li>
+            </ul>
+        </nav>
+        <div style="clear: both;"></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h2>Disaster Preparedness & Response Education System</h2>
+        <p>Be informed. Be prepared. Be safe. DPRES educates and empowers communities to respond effectively to disasters.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h3>Contact Us</h3>
+        <p>Email: support@dpres.org | Phone: +123-456-7890 | Address: Emergency Lane, Safe City</p>
+    </section>
+
+    <!-- Emergency Section -->
+    <section id="emergency">
+        <h3>Emergency Info</h3>
+        <p>Call 112 for medical help, 101 for fire, 100 for police. Have a go-bag ready with water, food, first-aid, and important documents.</p>
+    </section>
+
+    <!-- Learn Section -->
+    <section id="learn">
+        <h3>Learn Preparedness</h3>
+        <p>Take our free online courses on first aid, evacuation planning, disaster types, and how to build emergency kits.</p>
+    </section>
+
+    <!-- Login Section -->
+    <section id="login">
+        <div class="login-form">
+            <h3>User Login</h3>
+            <form action="#">
+                <input type="text" placeholder="User ID" required>
+                <input type="password" placeholder="Password" required>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 DPRES. All rights reserved.
+    </footer>
+
+</body>
+</html>
